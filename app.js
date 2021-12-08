@@ -14,6 +14,6 @@ app.use(logInRoute);
 app.use(sinUpRoute);
 
 const Port = 5000;
-app.listen(process.env.PORT||Port, () => {
+app.listen(process.env.PORT, () => {
   console.log("server is on");
 });
