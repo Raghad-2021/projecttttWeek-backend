@@ -1,16 +1,15 @@
 const userModel = require("../../db/moduls/userModel");
-// تسوي تشفير للباسوورد
 const bcrypt = require("bcrypt");
 const addUserSinUp = async (req, res) => {
-  // نرسل الاسم والايميل والباسورد من البودي
   let { name, email, pass } = req.body;
+  console.log({ name, email, pass });
   try {
-    // bcrypt.hash هو الي يشفرالباسورد
     pass = await bcrypt.hash(pass, 10);
     const newUser = new userModel({
       name,
       email,
       pass,
+      cart:[]
     });
     const result = await newUser.save();
     res.status(201).json(result);

@@ -1,8 +1,8 @@
-require('dotenv').config()
 const express = require("express");
 const app = express();
 require("./db/db.js");
 app.use(express.json());
+require('dotenv').config()
 const cors = require("cors");
 app.use(cors());
 
@@ -14,6 +14,6 @@ app.use(logInRoute);
 app.use(sinUpRoute);
 
 const Port = 5000;
-app.listen(process.env.port || Port, () => {
+app.listen(process.env.PORT||Port, () => {
   console.log("server is on");
 });
